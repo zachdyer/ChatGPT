@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas&display=swap');
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+@property --c1 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: red;
+}
+@property --c2 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: green;
+}
+@property --c3 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: blue;
+}
+@keyframes rainbow {
+  0% {
+    --c1: red;
+    --c2: green;
+    --c3: blue;
+  }
+  33% {
+    --c1: blue;
+    --c2: red;
+    --c3: green;
+  }
+  66% {
+    --c1: green;
+    --c2: blue;
+    --c3: red;
+  }
+  100% {
+    --c1: red;
+    --c2: green;
+    --c3: blue;
+  }
+}
+body {
+  background-image: radial-gradient(circle, var(--c1), var(--c2), var(--c3));
+  animation: rainbow 5s linear infinite;
+  display: grid;
+    place-items: center;
+}
+h1 {
+  transform: perspective(500px) rotateY(-45deg);
+  transform-style: preserve-3d;
+  text-align: center;
+  font-size: 150px;
+  text-shadow: 0 5px 5px rgba(0, 0, 0, 0.3), 0 -5px 5px rgba(255, 255, 255, 0.3);
+  animation: spin 10s linear infinite, rainbowtext 5s linear infinite;
+  font-family: 'Mountains of Christmas', cursive;
+  z-index: 100;
+}
+@keyframes spin {
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+@keyframes rainbowtext {
+  0% {
+    color: #ff0000;
+  }
+
+  16.6666666667% {
+    color: #ff7f00;
+  }
+
+  33.3333333333% {
+    color: #ffff00;
+  }
+
+  50% {
+    color: #00ff00;
+  }
+
+  66.6666666667% {
+    color: #0000ff;
+  }
+
+  83.3333333333% {
+    color: #4b0082;
+  }
+
+  100% {
+    color: #ff0000;
+  }
+}
+
+@keyframes confetti {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+.confetti {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: confetti 5s linear infinite;
+}
+@media (max-width: 768px) {
+  h1 {
+    font-size: 50px;
+  }
+}
