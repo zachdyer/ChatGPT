@@ -7,6 +7,9 @@ const createConfetti = () => {
   confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
   confetti.style.backgroundColor = `hsl(${Math.random() * 360}deg, 100%, 50%)`;
   confetti.style.animationDuration = `${Math.random() * 10 + 5}s`;
+  let size = Math.random() * 10 + 5
+  confetti.style.width = `${size}px`
+  confetti.style.height = `${size}px`
   document.body.appendChild(confetti);
 
   // Remove the confetti element after the animation is complete
