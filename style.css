@@ -5,6 +5,7 @@ html, body {
   height: 100vh;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 @property --c1 {
@@ -59,6 +60,7 @@ h1 {
   animation: spin 10s linear infinite, rainbowtext 5s linear infinite;
   font-family: 'Mountains of Christmas', cursive;
   z-index: 100;
+  position: absolute;
 }
 @keyframes spin {
   0% {
